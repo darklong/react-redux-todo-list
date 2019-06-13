@@ -16,7 +16,7 @@ export default class App extends React.Component {
     );
   }
 }
-
+const unsubscribe = store.subscribe(() => console.log(store.getState()))
 const styles = StyleSheet.create({
   container: {
     flex: 1,

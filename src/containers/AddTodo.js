@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { View, StyleSheet, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import store from '../store';
-import reducers from '../reducers';
 
 class AddTodo extends Component {
     constructor (props) {
@@ -16,7 +14,7 @@ class AddTodo extends Component {
     _addTodo = () => {
         // this.props.addTodo('jksjdflakj');
         this.props.addTodo(this.state.value);
-        console.log(store.getState());
+        // console.log(store.getState());
     }
     render () {
         return (

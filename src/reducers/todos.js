@@ -1,4 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/types'
+import { ADD_TODO, TOGGLE_TODO } from '../actions/types';
+
 const initialState = [{id: 0, text: 'learn redux react', completed: false}];
 const todos = (state = initialState, action) => {
     switch (action.type) {

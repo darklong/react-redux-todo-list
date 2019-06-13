@@ -1,11 +1,16 @@
 import React,{ Component } from 'react';
-import { View, FlatList, StyleSheet, Text } from 'react-native';
+import { View, FlatList, StyleSheet, Text, Button } from 'react-native';
 import Todo from './Todo';
 import { connect } from 'react-redux';
+import store from '../store';
 
 class TodoList extends Component {
     constructor (props) {
         super(props);
+        const unsubscribe = store.subscribe(() => {
+            let state = store.getState();
+            this.props.todos =  state.todos;
+        })
     }
     _renderItem = ({item}) => (
         <Todo
@@ -14,14 +19,22 @@ class TodoList extends Component {
             text={item.text}
         />
     )
+    _viewProps = () => {
+        // this.props.todos = dataTemp
+        console.log(this.props.todos);
+    }
     render() {
         return (
             <View style={styles.container}>
+            <Button
+                    title ="View props"
+                    onPress={this._viewProps}
+            />
             <Text style={styles.item}>this is your list todo {this.props.todos.length}</Text>
-            {console.log(this.props.todos)}
             <FlatList
                 data = {this.props.todos}
                 renderItem = {this._renderItem}
+                keyExtractor={(item) => item.id.toString()}
             />
             </View>
         )
@@ -40,7 +53,7 @@ const dataTemp = [
         "text": "Uhhuuu",
     },
 ];
-const mapStateToProps = state => ({
+mapStateToProps = state => ({
     todos: state.todos
 });
 
@@ -52,5 +65,7 @@ const styles = StyleSheet.create({
         color:'rgb(219,196,155)',
     }
 });
+
+
 
 export default connect(mapStateToProps, null)(TodoList);

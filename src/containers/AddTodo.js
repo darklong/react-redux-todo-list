@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
-import * as actionsCreatetors from '../actions';
-import { bindActionCreators } from 'redux'
-
+import * as actions from '../actions';
 
 class AddTodo extends Component {
     constructor (props) {
@@ -14,9 +12,7 @@ class AddTodo extends Component {
       this.setState({value: Text})
     }
     _addTodo = () => {
-        // this.props.addTodo('jksjdflakj');
-        this.props.actions.addTodo(this.state.value);
-        // console.log(store.getState());
+        this.props.addTodo(this.state.value);
     }
     render () {
         return (
@@ -50,10 +46,5 @@ const styles = StyleSheet.create({
     backgroundColor: secondColor
   }
 });
-const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(actionsCreatetors, dispatch)
-})
 
-export default connect(null,mapDispatchToProps)(AddTodo);
-
-// export default AddTodo;
+export default connect(null,actions)(AddTodo);

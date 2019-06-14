@@ -8,7 +8,7 @@ import SafeAreaView from 'react-native-safe-area-view';
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={store} UNSAFE_readLatestStoreStateOnFirstRender={true} >
         <SafeAreaView forceInset={{top: 'always'}} style={styles.container}>
           <Main/>
         </SafeAreaView>

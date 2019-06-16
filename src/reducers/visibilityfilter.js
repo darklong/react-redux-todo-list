@@ -1,6 +1,6 @@
-import { SET_VISIBILITY_FILTER, visibilityFilters } from '../actions/types'
+import { SET_VISIBILITY_FILTER, Visibility_Filters } from '../actions/types'
 
-const visibilityfilter = (state = visibilityFilters.SHOW_ALL, action ) => {
+const visibilityFilter = (state = Visibility_Filters.SHOW_ALL, action ) => {
     switch (action.type) {
         case SET_VISIBILITY_FILTER:
             return action.filter;
@@ -9,4 +9,4 @@ const visibilityfilter = (state = visibilityFilters.SHOW_ALL, action ) => {
     }
 }
 
-export default visibilityfilter;
+export default visibilityFilter;

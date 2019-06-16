@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, TextInput} from 'react-native';
 // import { Audio } from 'expo';
-import * as Actions from './actions';
 import AddTodo from './containers/AddTodo';
-import TodoList from './components/TodoList'
+import VisibleTodoList from './containers/VisibleTodoList';
 
 class Main extends Component {
   // async _addEffectAudio (){
@@ -20,7 +19,7 @@ class Main extends Component {
     return (
       <View style={styles.container}>
         <AddTodo/>
-        <TodoList/>
+        <VisibleTodoList/>
       </View>
     )
   }

@@ -12,7 +12,7 @@ class AddTodo extends Component {
       this.setState({value: Text})
     }
     _addTodo = () => {
-        this.props.addTodo(this.state.value);
+      this.props.addTodo(this.state.value);
     }
     render () {
         return (

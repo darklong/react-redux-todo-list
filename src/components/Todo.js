@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { connect } from 'react-redux';
 
 const Todo = ({ onPress, completed, text }) => (
     <View>
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
     },
     itemDid: {
         textDecorationLine: 'line-through',
-        color:'rgb(219,196,155)'
+        color:'red'
     }
 });
 

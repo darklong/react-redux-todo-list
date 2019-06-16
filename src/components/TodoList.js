@@ -3,31 +3,26 @@ import { View, FlatList, StyleSheet, Text, Button } from 'react-native';
 import Todo from './Todo';
 import { connect } from 'react-redux';
 
-class TodoList extends Component {
-    _renderItem = ({item}) => (
-        <Todo
-            onPress = { () => null }
-            completed={item.completed}
-            text={item.text}
-        />
-    )
-    render() {
-        return (
-            <View style={styles.container}>
-            <Text style={styles.item}>this is your list todo {this.props.todos.length}</Text>
-            <FlatList
-                data = {this.props.todos}
-                renderItem = {this._renderItem}
-                keyExtractor={(item) => item.id.toString()}
-            />
-            </View>
-        )
-    }
-}
 
-mapStateToProps = state => ({
-    todos: state.todos
-});
+const renderItem = ({item, index}) => (
+    <Todo
+        onPress = { () => toggleTodo(index) }
+        completed={item.completed}
+        text={item.text}
+    />
+)
+const TodoList = ({ todos, toggleTodo}) => (
+    <FlatList
+        data = {todos}
+        renderItem = {({item, index}) => (
+            <Todo
+                onPress = { () => toggleTodo(index) }
+                completed={item.completed}
+                text={item.text}
+        />)}
+        keyExtractor={(item) => item.id.toString()}
+    />
+);
 
 const styles = StyleSheet.create({
     container: {
@@ -38,4 +33,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(mapStateToProps, null)(TodoList);
+export default TodoList;

@@ -4,6 +4,7 @@ import Main from './src/Main';
 import { Provider } from 'react-redux';
 import store from './src/store';
 import SafeAreaView from 'react-native-safe-area-view';
+import Color from './src/constants/Color';
 
 export default class App extends React.Component {
   render() {
@@ -19,9 +20,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgb(32,37,55)',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: Color.coreColor,
   },
 });
 

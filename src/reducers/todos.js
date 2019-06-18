@@ -15,7 +15,7 @@ const todos = (state = initialState, action) => {
                 }
             ];
         case TOGGLE_TODO:
-            return state.map( todo => todo.id == action.index ? { ...todo, completed: !todo.completed} : todo)
+            return state.map( todo => todo.id === action.id ? { ...todo, completed: !todo.completed} : todo)
         default:
             return state;
     }

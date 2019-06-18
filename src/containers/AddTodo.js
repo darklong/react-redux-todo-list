@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Color from '../constants/Color'
+import Footer from '../components/Footer';
 
 class AddTodo extends Component {
     constructor (props) {
@@ -20,30 +22,31 @@ class AddTodo extends Component {
                 <TextInput 
                     style={styles.inputTodo}
                     placeholder="Type here to add"
-                    placeholderTextColor="rgb(219,196,155)"
+                    placeholderTextColor={Color.textColor}
                     onChangeText={this._onChangeText}
                 />
                 <Button
                     title ="ADD"
                     style={styles.addBtn}
                     onPress={this._addTodo}
+                    color={Color.secondColor}
                 />
+                <Footer/>
             </View>
         )
     }
 }
 
-const secondColor = 'rgb(219,196,155)';
 const styles = StyleSheet.create({
   header: {
-    flex: 1,
+    height: 120,
   },
   inputTodo: {
     height: 40,
-    color: secondColor
+    color: Color.textColor
   },
   addBtn: {
-    backgroundColor: secondColor
+    backgroundColor: Color.secondColor
   }
 });
 

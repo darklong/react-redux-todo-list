@@ -26,23 +26,14 @@ class Main extends Component {
 }
 
 
-const secondColor = 'rgb(219,196,155)';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    justifyContent: 'center'
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    padding: 6
   },
-  header: {
-    flex: 1
-  },
-  body: {
-    flex: 2
-  },
-  footer: {
-    flex: 1
-  },
-  
 });
 
 export default Main;

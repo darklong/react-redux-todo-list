@@ -1,10 +1,9 @@
-import React,{ Component } from 'react';
-import { View, FlatList, StyleSheet, Text, Button } from 'react-native';
+import React from 'react';
+import { FlatList, StyleSheet } from 'react-native';
 import Todo from './Todo';
-import { connect } from 'react-redux';
 
 
-const renderItem = ({item, index}) => (
+const renderItem = ({item, index},toggleTodo) => (
     <Todo
         onPress = { () => toggleTodo(index) }
         completed={item.completed}
@@ -13,20 +12,16 @@ const renderItem = ({item, index}) => (
 )
 const TodoList = ({ todos, toggleTodo}) => (
     <FlatList
+        style={styles.container}
         data = {todos}
-        renderItem = {({item, index}) => (
-            <Todo
-                onPress = { () => toggleTodo(index) }
-                completed={item.completed}
-                text={item.text}
-        />)}
+        renderItem = { ({item, index}) => renderItem({item, index}, toggleTodo)}
         keyExtractor={(item) => item.id.toString()}
     />
 );
 
+
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
     },
     item: {
         color:'rgb(219,196,155)',
